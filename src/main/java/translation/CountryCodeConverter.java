@@ -42,7 +42,7 @@ public class CountryCodeConverter {
                 String line = iterator.next();
                 String[] parts = line.split("\t");
                 String countryName = parts[0].trim();
-                String countryCode = parts[1].trim().toUpperCase();
+                String countryCode = parts[2].trim().toUpperCase();
 
                 countryCodeToCountry.put(countryCode, countryName);
                 countryToCountryCode.put(countryName, countryCode);
