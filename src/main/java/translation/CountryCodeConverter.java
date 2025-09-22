@@ -61,11 +61,13 @@ public class CountryCodeConverter {
      * @return the name of the country corresponding to the code
      */
     public String fromCountryCode(String code) {
-        code = countryCodeToCountry.get(code.trim().toUpperCase());
+        if (code == null) {
+            return null;}
+        else {
+            code = countryCodeToCountry.get(code.trim().toUpperCase());
+        }
         return code;
     }
-
-
 
     /**
      * Return the code of the country for the given country name.
@@ -73,7 +75,8 @@ public class CountryCodeConverter {
      * @return the 3-letter code of the country
      */
     public String fromCountry(String country) {
-        country = countryToCountryCode.get(country);
+        if (country == null) {return null;}
+        else {country = countryToCountryCode.get(country);}
         return country;
     }
 
