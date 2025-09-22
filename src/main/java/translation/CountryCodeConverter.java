@@ -15,6 +15,7 @@ import java.util.Map;
 public class CountryCodeConverter {
 
     private Map<String, String> countryCodeToCountry = new HashMap<>();
+
     private Map<String, String> countryToCountryCode = new HashMap<>();
 
     /**
