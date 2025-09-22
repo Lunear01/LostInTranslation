@@ -68,7 +68,6 @@ public class CountryCodeConverter {
         }
         return code;
     }
-
     /**
      * Return the code of the country for the given country name.
      * @param country the name of the country
