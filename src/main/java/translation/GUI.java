@@ -15,7 +15,7 @@ public class GUI {
 
             // Create JList with the model
             JList<String> list = new JList<>(listModel);
-            listModel.addElement("can");
+            listModel.addElement("Canada");
             countryPanel.add(countryLabel);
 
             list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
