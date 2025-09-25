@@ -10,9 +10,20 @@ public class GUI {
             // Country selection (for now, only Canada)
             JPanel countryPanel = new JPanel();
             JLabel countryLabel = new JLabel("Country:");
-            JComboBox<String> countryCombo = new JComboBox<>(new String[]{"can"});
+            // Create a DefaultListModel
+            DefaultListModel<String> listModel = new DefaultListModel<>();
+
+            // Create JList with the model
+            JList<String> list = new JList<>(listModel);
+            listModel.addElement("can");
             countryPanel.add(countryLabel);
-            countryPanel.add(countryCombo);
+
+            list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+
+            // place the JList in a scroll pane so that it is scrollable in the UI
+            JScrollPane scrollPane = new JScrollPane(list);
+            countryPanel.add(scrollPane, 1);
+
 
             // Language selection (all supported languages from CanadaTranslator)
             JPanel languagePanel = new JPanel();
@@ -36,7 +47,7 @@ public class GUI {
             submit.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    String country = (String) countryCombo.getSelectedItem();
+                    String country = "can";
                     String language = (String) languageCombo.getSelectedItem();
                     String result = translator.translate(country, language);
                     if (result == null) {
@@ -49,8 +60,8 @@ public class GUI {
             // Main frame
             JPanel mainPanel = new JPanel();
             mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-            mainPanel.add(countryPanel);
             mainPanel.add(languagePanel);
+            mainPanel.add(countryPanel);
             mainPanel.add(buttonPanel);
 
             JFrame frame = new JFrame("Country Name Translator");
