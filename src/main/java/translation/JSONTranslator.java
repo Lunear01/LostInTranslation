@@ -71,26 +71,6 @@ public class JSONTranslator implements Translator {
         }
     }
 
-    /**
-     * Debug method to check if language codes are being processed correctly
-     */
-    public void debugLanguageCodes() {
-        System.out.println("=== JSONTranslator Debug ===");
-        System.out.println("Total countries: " + countryCodes.size());
-        System.out.println("Total language codes: " + languageCodes.size());
-        System.out.println("Total translations: " + translations.size());
-
-        System.out.println("First 10 country codes: " + countryCodes.subList(0, Math.min(10, countryCodes.size())));
-        System.out.println("All language codes: " + languageCodes);
-
-        // Test some translations
-        if (!countryCodes.isEmpty() && !languageCodes.isEmpty()) {
-            String testCountry = countryCodes.get(0);
-            String testLanguage = languageCodes.get(0);
-            String translation = translate(testCountry, testLanguage);
-            System.out.println("Test translation for " + testCountry + "-" + testLanguage + ": " + translation);
-        }
-    }
     @Override
     public List<String> getLanguageCodes() {
         ArrayList<String> languagecodes_copy = new ArrayList<>();

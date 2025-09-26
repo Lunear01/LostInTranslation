@@ -16,7 +16,6 @@ public class GUI {
             LanguageCodeConverter lanConverter = new LanguageCodeConverter();
             List<String> countryCodes = translator.getCountryCodes();
             List<String> languageCodes = translator.getLanguageCodes();
-            translator.debugLanguageCodes();
 
             // Country selection
             JPanel countryPanel = new JPanel();
