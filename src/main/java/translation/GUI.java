@@ -73,20 +73,13 @@ public class GUI {
 
                     // Get selected country
                     String selectedCountryName = list.getSelectedValue();
-                    if (selectedCountryName == null) {
-                        resultLabel.setText("Please select a country");
-                        return;
-                    }
 
                     // Get selected language
                     String selectedLanguageName = (String) languageCombo.getSelectedItem();
-                    if (selectedLanguageName == null) {
-                        resultLabel.setText("Please select a language");
-                        return;
-                    }
 
                     // Convert country name back to country code
                     String countryCode = null;
+
                     for (String code : countryCodes) {
                         String countryNameFromCode = converter.fromCountryCode(code);
                         if (selectedCountryName.equals(countryNameFromCode)) {
@@ -97,31 +90,13 @@ public class GUI {
 
                     // Convert language name back to language code
                     String languageCode = lanConverter.fromLanguage(selectedLanguageName);
-                    if (languageCode == null) {
-                        // If direct conversion fails, try to extract from display name
-                        for (String code : languageCodes) {
-                            String languageNameFromCode = lanConverter.fromLanguageCode(code);
-                            if (selectedLanguageName.equals(languageNameFromCode)) {
-                                languageCode = code;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (countryCode == null || languageCode == null) {
-                        resultLabel.setText("Error: Could not find code for selection");
-                        return;
-                    }
 
                     // Perform translation
                     String translation = translator.translate(countryCode, languageCode);
 
                     // Check if translation was successful
-                    if (translation == null || translation.contains("not implemented")) {
-                        resultLabel.setText("Translation not available");
-                    } else {
-                        resultLabel.setText(translation);
-                    }
+                    resultLabel.setText(translation);
+
                 }
             });
 
